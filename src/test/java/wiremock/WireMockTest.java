@@ -17,7 +17,7 @@ import static org.junit.Assert.assertThat;
 
 public class WireMockTest {
     @Rule
-    public WireMockRule wireMockRule = new WireMockRule(WireMockConfiguration.wireMockConfig());
+    public WireMockRule wireMockRule = new WireMockRule(WireMockConfiguration.wireMockConfig().dynamicPort());
 
     MyRestTemplateClient client;
     String baseUrl;
