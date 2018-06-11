@@ -1,14 +1,24 @@
 package wiremock;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
-
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlElement;
 import java.util.Objects;
 
+@XmlAccessorType(XmlAccessType.FIELD)
 public class Account {
+    @XmlElement(name = "Number")
     private final String number;
+    @XmlElement(name = "Name")
     private final String name;
 
-    public Account(@JsonProperty("Number") String number, @JsonProperty("Name") String name) {
+    //Will be used by jaxb
+    private Account() {
+        number = null;
+        name = null;
+    }
+
+    public Account(String number, String name) {
         this.number = number;
         this.name = name;
     }
